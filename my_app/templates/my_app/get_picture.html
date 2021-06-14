@@ -1,0 +1,21 @@
+{% extends 'my_app/navbar_my_app.html' %}
+
+{% block title %}Upload images{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-3 my-3 border">
+        <form method="post" enctype="multipart/form-data" action="{% url 'redirect' %}">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Upload your picture</label>
+                {% csrf_token %}
+                <input type="file" id="file" name="file" class="form-control-file form-control-lg">
+                {% if error %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+{% endblock %}

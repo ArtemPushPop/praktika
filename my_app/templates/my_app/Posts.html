@@ -1,0 +1,21 @@
+{% extends 'my_app/navbar_my_app.html' %}
+
+{% block title %}Posts{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid p-3 my-3 border">
+        {% if all_posts %}
+            <div class="container">
+                <div class="row"
+            </div>
+            <ul>
+            {% for post in all_posts %}
+                <li> <h1>{{ post.user }}</h1> {{ post.post }}<br> {{ post.pub_date }} <br></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+    </div>
+{% endblock %}

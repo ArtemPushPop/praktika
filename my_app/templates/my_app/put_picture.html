@@ -1,0 +1,15 @@
+{% extends 'my_app/navbar_my_app.html' %}
+
+{% block title %}Watch images{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-3 my-3 border">
+        {% if random_pic %}
+            <h1 class="img-thumbnail"> tap on image to see another one.</h1>
+            <a href = "{% url 'put_pic' %}"> <img src="../../../{{ user_files }}/{{ random_pic}}" class="img-thumbnail" width="640" height="480"> </a>
+        {% else %}
+            <p>there are no pictures yet</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends 'my_app/navbar_my_app.html' %}
+
+{% block title %}Images delete{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-3 my-3 border">
+        {% if all_picks %}
+            <h1> tap on image to delete it.</h1>
+            {% for pic in all_picks %}
+                <div class="row ml-1 mt-3">
+                <a href = "{% url 'delete_redirect' forloop.counter %}"> <img src="../../../{{ user_files }}/{{ pic.picture.name }}" width="640" height="480"> </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>No pictures are available.</h1>
+        {% endif %}
+    </div>
+{% endblock %}
